@@ -2,117 +2,162 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" integrity="sha512-rCZdHNB0AePry6kAnKAVFMRfWPmUXSo+/vlGtrOUvhsxD0Punm/xWbEh+8vppPIOzKB9xnk42yCRZ5MD/jvvjQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.js" integrity="sha512-+tu0+vUXyZX+S51npa//IN6znNTLZsBoy8mXn9WzHxfBqYMy6gOzzfTK0VqZf9O171RY9AJviHDokCnvEq8+1A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/addons/p5.sound.js" integrity="sha512-TU9AWtV5uUZPX8dbBAH8NQF1tSdigPRRT82vllAQ1Ke28puiqLA6ZVKxtUGlgrH6yWFnkKy+sE6luNEGH9ar0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Generative Art Projects"
-    />
+    <meta name="description" content="Generative Art" />
     <title>Gen Art</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: black;
+        color: white;
+        font-family: sans-serif;
+        user-select: none;
+      }
+
+      header {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        padding: 24px 30px;
+      }
+
+      header a {
+        text-decoration: none;
+        color: white;
+        font-size: 0.85rem;
+        font-weight: 200;
+      }
+
+      header a:hover {
+        text-decoration: underline;
+      }
+
+      main {
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 80px;
+        margin-bottom: 400px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .page-title {
+        font-size: 6rem;
+        font-weight: 200;
+        font-style: italic;
+        line-height: 1;
+        margin-bottom: 80px;
+        cursor: default;
+      }
+
+      .series-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .series-entry {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: baseline;
+        padding: 28px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+      }
+
+      .series-entry:last-child {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .series-name {
+        font-size: 3rem;
+        font-weight: 200;
+        font-style: italic;
+        transition: opacity 0.2s;
+      }
+
+      .series-entry:hover .series-name {
+        opacity: 0.5;
+      }
+
+      .series-info {
+        font-size: 0.75rem;
+        font-weight: 200;
+        opacity: 0.35;
+        letter-spacing: 0.08em;
+        text-align: right;
+        line-height: 1;
+      }
+
+      @media (max-width: 640px) {
+        main {
+          width: 90%;
+          margin-top: 50px;
+        }
+        .page-title {
+          font-size: 3.5rem;
+          margin-bottom: 50px;
+        }
+        .series-name {
+          font-size: 2rem;
+        }
+      }
+    </style>
   </head>
   <body>
-    <style>
-        html {
-            position:relative;
-            min-height: 100%;
-        }
-        body {
-            width: 80%;
-            margin: auto;
-            font-size: 110%;
-        }
-        footer {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-        }
-        h1 {
-            font-size: 500%;
-            text-align: center;
-        }
-        h2 {
-            font-weight: 200;
-        }
+    <header>
+      <a href="/">Gen Art</a>
+      <a href="https://yooksel.com/">yooksel.com</a>
+    </header>
 
-        a {
-            text-decoration: none;
-            font-size: 120%;
-            outline: 1px solid white;
-            padding: 20px 0px 20px 20px;
-            color: white;
-            transition: background-color 0.5s
-        }
-        a:hover {
-            background-color: white;
-            color: black;
-            transition: background-color 0.5s;
-        }
-
-        #contact {
-            border: none;
-            padding: 0;
-            margin: 0;
-            font-size: 100%;
-            text-decoration: underline;
-        }
-    </style>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
     <main>
-        <article>
-            <section id="sketch">
-                <h>
-                    <h1 id="headline">....</h1>
-                    <h2>Generative Art Projects</h2>
-                </h>
-                <a id="Dust" class="link" href="Art/A1/dust.html">Dust</a>
-                <a id="Cables" class="link" href="Art/A2/cables.html">Cables</a>
-                <a id="Flower" class="link" href="Art/A3/flower.html">Flower</a>
-                <a id="Tornados" class="link" href="Art/A4/tornados.html">Tornados</a>
-                <a id="Perlin" class="link" href="Art/A5/perlin.html">Explosion</a>
-            </section>
-        </article>
+      <h1 class="page-title" id="headline">Gen Art</h1>
+
+      <nav class="series-list">
+        <a class="series-entry" href="organic.html">
+          <span class="series-name" data-label="Organic">Organic</span>
+          <span class="series-info">2024 — 2026&ensp;/&ensp;18</span>
+        </a>
+        <a class="series-entry" href="plume.html">
+          <span class="series-name" data-label="Plume">Plume</span>
+          <span class="series-info">2024 — 2025&ensp;/&ensp;3</span>
+        </a>
+        <a class="series-entry" href="worm.html">
+          <span class="series-name" data-label="Worm">Worm</span>
+          <span class="series-info">2025 — 2026&ensp;/&ensp;3</span>
+        </a>
+      </nav>
     </main>
-    <footer>
-        <p>
-            2022 / <a id="contact" href="https://yooksel.com/">Contact</a>
-        </p>
-    </footer>
+
     <script>
-        let count = 1000;
-        window.addEventListener('load', () => {
-          loop('.-..:-_:', '#headline', count);
-          if (count === 0) {
-              count = 10;
-              loop('...:-_:', '#headline', count);
-          }
-        });
+      const chars = '.-:_—·';
+      const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-        let links = document.getElementsByClassName('link');
-        for (let i = 0; i < links.length; i++) {
-            links[i].addEventListener('mouseover', (event) => {
-                loop(links[i].innerHTML + ".-.:", "#" + links[i].id, 5);
-            });
-        };
-
-        const sleep = (milliseconds) => {
-          return new Promise(resolve => setTimeout(resolve, milliseconds))
+      async function scramble(element, finalText, iterations) {
+        for (let i = 0; i < iterations; i++) {
+          await sleep(70);
+          element.textContent = finalText
+            .split('')
+            .map(c => c === ' ' ? ' ' : chars[Math.floor(Math.random() * chars.length)])
+            .join('');
         }
+        element.textContent = finalText;
+      }
 
-        const loop = async (text, element, count) => {
-          let hd = document.querySelector(element);
-          
-          for (let i = 0 ; i < count; i++) {
-           await sleep(200);
-           let shuffled = text.split('').sort(function(){return 0.5-Math.random()}).join('');
-           hd.innerHTML = shuffled;
-          }
-          hd.innerHTML = hd.id;
-        }
+      window.addEventListener('load', () => {
+        scramble(document.getElementById('headline'), 'Gen Art', 18);
+      });
+
+      document.querySelectorAll('.series-name').forEach(el => {
+        el.addEventListener('mouseenter', () => scramble(el, el.dataset.label, 8));
+      });
     </script>
   </body>
 </html>
