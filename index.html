@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Generative Art" />
-    <title>Gen Art</title>
+    <title>gen-art</title>
     <style>
       * {
         margin: 0;
@@ -42,58 +42,37 @@
         margin: 0 auto;
         margin-top: 80px;
         margin-bottom: 400px;
-        display: flex;
-        flex-direction: column;
       }
 
-      .page-title {
-        font-size: 6rem;
-        font-weight: 200;
-        font-style: italic;
-        line-height: 1;
-        margin-bottom: 80px;
-        cursor: default;
-      }
-
-      .series-list {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-      }
-
-      .series-entry {
+      .series-grid {
         display: grid;
-        grid-template-columns: 1fr auto;
-        align-items: baseline;
-        padding: 28px 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+      }
+
+      .series-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
         text-decoration: none;
         color: white;
-        cursor: pointer;
       }
 
-      .series-entry:last-child {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      .card-preview {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        display: block;
+        outline: 1px solid rgba(255, 255, 255, 0.1);
       }
 
-      .series-name {
-        font-size: 3rem;
+      .card-title {
+        font-size: 1rem;
         font-weight: 200;
         font-style: italic;
-        transition: opacity 0.2s;
-      }
-
-      .series-entry:hover .series-name {
-        opacity: 0.5;
-      }
-
-      .series-info {
-        font-size: 0.75rem;
-        font-weight: 200;
-        opacity: 0.35;
-        letter-spacing: 0.08em;
-        text-align: right;
-        line-height: 1;
+        text-align: center;
+        cursor: default;
       }
 
       @media (max-width: 640px) {
@@ -101,11 +80,11 @@
           width: 90%;
           margin-top: 50px;
         }
-        .page-title {
-          font-size: 3.5rem;
-          margin-bottom: 50px;
+        .series-grid {
+          grid-template-columns: 1fr;
+          gap: 14px;
         }
-        .series-name {
+        .card-title {
           font-size: 2rem;
         }
       }
@@ -113,30 +92,42 @@
   </head>
   <body>
     <header>
-      <a href="/">Gen Art</a>
-      <a href="https://yooksel.com/">yooksel.com</a>
+      <a href="/">gen-art</a>
+      <a href="https://yooksel.com/">yooksel</a>
     </header>
 
     <main>
-      <h1 class="page-title" id="headline">Gen Art</h1>
-
-      <nav class="series-list">
-        <a class="series-entry" href="organic.html">
-          <span class="series-name" data-label="Organic">Organic</span>
-          <span class="series-info">2024 — 2026&ensp;/&ensp;18</span>
+      <nav class="series-grid">
+        <a class="series-card" href="worm.html">
+          <video class="card-preview" muted loop autoplay playsinline></video>
+          <span class="card-title" data-label="Worm">Worm</span>
         </a>
-        <a class="series-entry" href="plume.html">
-          <span class="series-name" data-label="Plume">Plume</span>
-          <span class="series-info">2024 — 2025&ensp;/&ensp;3</span>
+        <a class="series-card" href="flutter.html">
+          <video class="card-preview" muted loop autoplay playsinline></video>
+          <span class="card-title" data-label="Flutter">Flutter</span>
         </a>
-        <a class="series-entry" href="worm.html">
-          <span class="series-name" data-label="Worm">Worm</span>
-          <span class="series-info">2025 — 2026&ensp;/&ensp;3</span>
+        <a class="series-card" href="radius.html">
+          <video class="card-preview" muted loop autoplay playsinline></video>
+          <span class="card-title" data-label="Radius">Radius</span>
         </a>
       </nav>
     </main>
 
     <script>
+      const series = { worm: 25, flutter: 20, radius: 25 };
+
+      function randomClip(name) {
+        const n = Math.floor(Math.random() * series[name]) + 1;
+        return `gallery/${name}/${name}-${String(n).padStart(2, '0')}.mov`;
+      }
+
+      // Load a random clip into each card on page load
+      document.querySelectorAll('.series-card').forEach(card => {
+        const name = card.getAttribute('href').replace('.html', '');
+        card.querySelector('.card-preview').src = randomClip(name);
+      });
+
+      // Scramble titles
       const chars = '.-:_—·';
       const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -151,11 +142,8 @@
         element.textContent = finalText;
       }
 
-      window.addEventListener('load', () => {
-        scramble(document.getElementById('headline'), 'Gen Art', 18);
-      });
-
-      document.querySelectorAll('.series-name').forEach(el => {
+      document.querySelectorAll('.card-title').forEach(el => {
+        window.addEventListener('load', () => scramble(el, el.dataset.label, 18));
         el.addEventListener('mouseenter', () => scramble(el, el.dataset.label, 8));
       });
     </script>
