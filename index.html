@@ -2,117 +2,152 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" integrity="sha512-rCZdHNB0AePry6kAnKAVFMRfWPmUXSo+/vlGtrOUvhsxD0Punm/xWbEh+8vppPIOzKB9xnk42yCRZ5MD/jvvjQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.js" integrity="sha512-+tu0+vUXyZX+S51npa//IN6znNTLZsBoy8mXn9WzHxfBqYMy6gOzzfTK0VqZf9O171RY9AJviHDokCnvEq8+1A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/addons/p5.sound.js" integrity="sha512-TU9AWtV5uUZPX8dbBAH8NQF1tSdigPRRT82vllAQ1Ke28puiqLA6ZVKxtUGlgrH6yWFnkKy+sE6luNEGH9ar0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Generative Art Projects"
-    />
-    <title>Gen Art</title>
+    <meta name="description" content="Generative Art" />
+    <title>gen-art</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: black;
+        color: white;
+        font-family: sans-serif;
+        user-select: none;
+      }
+
+      header {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        padding: 24px 30px;
+      }
+
+      header a {
+        text-decoration: none;
+        color: white;
+        font-size: 0.85rem;
+        font-weight: 200;
+      }
+
+      header a:hover {
+        text-decoration: underline;
+      }
+
+      main {
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 80px;
+        margin-bottom: 400px;
+      }
+
+      .series-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+      }
+
+      .series-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        text-decoration: none;
+        color: white;
+      }
+
+      .card-preview {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        display: block;
+        outline: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .card-title {
+        font-size: 1rem;
+        font-weight: 200;
+        font-style: italic;
+        text-align: center;
+        cursor: default;
+      }
+
+      @media (max-width: 640px) {
+        main {
+          width: 90%;
+          margin-top: 50px;
+        }
+        .series-grid {
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+        .card-title {
+          font-size: 2rem;
+        }
+      }
+    </style>
   </head>
   <body>
-    <style>
-        html {
-            position:relative;
-            min-height: 100%;
-        }
-        body {
-            width: 80%;
-            margin: auto;
-            font-size: 110%;
-        }
-        footer {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-        }
-        h1 {
-            font-size: 500%;
-            text-align: center;
-        }
-        h2 {
-            font-weight: 200;
-        }
+    <header>
+      <a href="/">gen-art</a>
+      <a href="https://yooksel.com/">yooksel</a>
+    </header>
 
-        a {
-            text-decoration: none;
-            font-size: 120%;
-            outline: 1px solid white;
-            padding: 20px 0px 20px 20px;
-            color: white;
-            transition: background-color 0.5s
-        }
-        a:hover {
-            background-color: white;
-            color: black;
-            transition: background-color 0.5s;
-        }
-
-        #contact {
-            border: none;
-            padding: 0;
-            margin: 0;
-            font-size: 100%;
-            text-decoration: underline;
-        }
-    </style>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
     <main>
-        <article>
-            <section id="sketch">
-                <h>
-                    <h1 id="headline">....</h1>
-                    <h2>Generative Art Projects</h2>
-                </h>
-                <a id="Dust" class="link" href="Art/A1/dust.html">Dust</a>
-                <a id="Cables" class="link" href="Art/A2/cables.html">Cables</a>
-                <a id="Flower" class="link" href="Art/A3/flower.html">Flower</a>
-                <a id="Tornados" class="link" href="Art/A4/tornados.html">Tornados</a>
-                <a id="Perlin" class="link" href="Art/A5/perlin.html">Explosion</a>
-            </section>
-        </article>
+      <nav class="series-grid">
+        <a class="series-card" href="worm.html">
+          <video class="card-preview" muted loop autoplay playsinline></video>
+          <span class="card-title" data-label="Worm">Worm</span>
+        </a>
+        <a class="series-card" href="flutter.html">
+          <video class="card-preview" muted loop autoplay playsinline></video>
+          <span class="card-title" data-label="Flutter">Flutter</span>
+        </a>
+        <a class="series-card" href="radius.html">
+          <video class="card-preview" muted loop autoplay playsinline></video>
+          <span class="card-title" data-label="Radius">Radius</span>
+        </a>
+      </nav>
     </main>
-    <footer>
-        <p>
-            2022 / <a id="contact" href="https://yooksel.com/">Contact</a>
-        </p>
-    </footer>
+
     <script>
-        let count = 1000;
-        window.addEventListener('load', () => {
-          loop('.-..:-_:', '#headline', count);
-          if (count === 0) {
-              count = 10;
-              loop('...:-_:', '#headline', count);
-          }
-        });
+      const series = { worm: 25, flutter: 20, radius: 25 };
 
-        let links = document.getElementsByClassName('link');
-        for (let i = 0; i < links.length; i++) {
-            links[i].addEventListener('mouseover', (event) => {
-                loop(links[i].innerHTML + ".-.:", "#" + links[i].id, 5);
-            });
-        };
+      const CDN = 'https://pub-0881700de6094af59d2170b91c991f80.r2.dev';
 
-        const sleep = (milliseconds) => {
-          return new Promise(resolve => setTimeout(resolve, milliseconds))
+      function randomClip(name) {
+        const n = Math.floor(Math.random() * series[name]) + 1;
+        return `${CDN}/gallery/${name}/${name}-${String(n).padStart(2, '0')}.mp4`;
+      }
+
+      // Load a random clip into each card on page load
+      document.querySelectorAll('.series-card').forEach(card => {
+        const name = card.getAttribute('href').replace('.html', '');
+        card.querySelector('.card-preview').src = randomClip(name);
+      });
+
+      // Scramble titles
+      const chars = '.-:_—·';
+      const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+      async function scramble(element, finalText, iterations) {
+        for (let i = 0; i < iterations; i++) {
+          await sleep(70);
+          element.textContent = finalText
+            .split('')
+            .map(c => c === ' ' ? ' ' : chars[Math.floor(Math.random() * chars.length)])
+            .join('');
         }
+        element.textContent = finalText;
+      }
 
-        const loop = async (text, element, count) => {
-          let hd = document.querySelector(element);
-          
-          for (let i = 0 ; i < count; i++) {
-           await sleep(200);
-           let shuffled = text.split('').sort(function(){return 0.5-Math.random()}).join('');
-           hd.innerHTML = shuffled;
-          }
-          hd.innerHTML = hd.id;
-        }
+      document.querySelectorAll('.card-title').forEach(el => {
+        window.addEventListener('load', () => scramble(el, el.dataset.label, 18));
+        el.addEventListener('mouseenter', () => scramble(el, el.dataset.label, 8));
+      });
     </script>
   </body>
 </html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Generative Art — Organic Series" />
+    <title>gen-art — Organic</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: black;
+        color: white;
+        font-family: sans-serif;
+        user-select: none;
+      }
+
+      header {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        padding: 24px 30px;
+      }
+
+      header a {
+        text-decoration: none;
+        color: white;
+        font-size: 0.85rem;
+        font-weight: 200;
+      }
+
+      header a:hover {
+        text-decoration: underline;
+      }
+
+      main {
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 80px;
+        margin-bottom: 400px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .series-title {
+        font-size: 6rem;
+        font-weight: 200;
+        font-style: italic;
+        line-height: 1;
+        margin-bottom: 14px;
+        cursor: default;
+      }
+
+      .series-meta {
+        font-size: 0.8rem;
+        font-weight: 200;
+        opacity: 0.35;
+        letter-spacing: 0.1em;
+        margin-bottom: 80px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 48px 28px;
+      }
+
+      .clip {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .clip video {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        display: block;
+        outline: 1px solid rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+      }
+
+      .clip-label {
+        font-size: 0.75rem;
+        font-weight: 200;
+        opacity: 0.4;
+      }
+
+      @media (max-width: 1000px) {
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 640px) {
+        main {
+          width: 90%;
+          margin-top: 50px;
+        }
+        .series-title {
+          font-size: 3.5rem;
+        }
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="/">gen-art</a>
+      <a href="https://yooksel.com/">yooksel</a>
+    </header>
+
+    <main>
+      <h1 class="series-title" id="headline">Organic</h1>
+
+      <div class="grid">
+        <div class="clip">
+          <video src="https://pub-0881700de6094af59d2170b91c991f80.r2.dev/gallery/organic/organic-01.mp4" preload="none" muted loop playsinline></video>
+          <span class="clip-label">1</span>
+        </div>
+        <div class="clip">
+          <video src="https://pub-0881700de6094af59d2170b91c991f80.r2.dev/gallery/organic/organic-02.mp4" preload="none" muted loop playsinline></video>
+          <span class="clip-label">2</span>
+        </div>
+        <div class="clip">
+          <video src="https://pub-0881700de6094af59d2170b91c991f80.r2.dev/gallery/organic/organic-03.mp4" preload="none" muted loop playsinline></video>
+          <span class="clip-label">3</span>
+        </div>
+        <div class="clip">
+          <video src="https://pub-0881700de6094af59d2170b91c991f80.r2.dev/gallery/organic/organic-04.mp4" preload="none" muted loop playsinline></video>
+          <span class="clip-label">4</span>
+        </div>
+        <div class="clip">
+          <video src="https://pub-0881700de6094af59d2170b91c991f80.r2.dev/gallery/organic/organic-05.mp4" preload="none" muted loop playsinline></video>
+          <span class="clip-label">5</span>
+        </div>
+        <div class="clip">
+          <video src="https://pub-0881700de6094af59d2170b91c991f80.r2.dev/gallery/organic/organic-06.mp4" preload="none" muted loop playsinline></video>
+          <span class="clip-label">6</span>
+        </div>
+        <div class="clip">
+          <video src="https://pub-0881700de6094af59d2170b91c991f80.r2.dev/gallery/organic/organic-07.mp4" preload="none" muted loop playsinline></video>
+          <span class="clip-label">7</span>
+        </div>
+        <div class="clip">
+          <video src="https://pub-0881700de6094af59d2170b91c991f80.r2.dev/gallery/organic/organic-08.mp4" preload="none" muted loop playsinline></video>
+          <span class="clip-label">8</span>
+        </div>
+        <div class="clip">
+          <video src="https://pub-0881700de6094af59d2170b91c991f80.r2.dev/gallery/organic/organic-09.mp4" preload="none" muted loop playsinline></video>
+          <span class="clip-label">9</span>
+        </div>
+        <div class="clip">
+          <video src="https://pub-0881700de6094af59d2170b91c991f80.r2.dev/gallery/organic/organic-10.mp4" preload="none" muted loop playsinline></video>
+          <span class="clip-label">10</span>
+        </div>
+        <div class="clip">
+          <video src="https://pub-0881700de6094af59d2170b91c991f80.r2.dev/gallery/organic/organic-11.mp4" preload="none" muted loop playsinline></video>
+          <span class="clip-label">11</span>
+        </div>
+        <div class="clip">
+          <video src="https://pub-0881700de6094af59d2170b91c991f80.r2.dev/gallery/organic/organic-12.mp4" preload="none" muted loop playsinline></video>
+          <span class="clip-label">12</span>
+        </div>
+        <div class="clip">
+          <video src="https://pub-0881700de6094af59d2170b91c991f80.r2.dev/gallery/organic/organic-13.mp4" preload="none" muted loop playsinline></video>
+          <span class="clip-label">13</span>
+        </div>
+        <div class="clip">
+          <video src="https://pub-0881700de6094af59d2170b91c991f80.r2.dev/gallery/organic/organic-14.mp4" preload="none" muted loop playsinline></video>
+          <span class="clip-label">14</span>
+        </div>
+        <div class="clip">
+          <video src="https://pub-0881700de6094af59d2170b91c991f80.r2.dev/gallery/organic/organic-15.mp4" preload="none" muted loop playsinline></video>
+          <span class="clip-label">15</span>
+        </div>
+        <div class="clip">
+          <video src="https://pub-0881700de6094af59d2170b91c991f80.r2.dev/gallery/organic/organic-16.mp4" preload="none" muted loop playsinline></video>
+          <span class="clip-label">16</span>
+        </div>
+        <div class="clip">
+          <video src="https://pub-0881700de6094af59d2170b91c991f80.r2.dev/gallery/organic/organic-17.mp4" preload="none" muted loop playsinline></video>
+          <span class="clip-label">17</span>
+        </div>
+        <div class="clip">
+          <video src="https://pub-0881700de6094af59d2170b91c991f80.r2.dev/gallery/organic/organic-18.mp4" preload="none" muted loop playsinline></video>
+          <span class="clip-label">18</span>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      document.querySelectorAll('.clip video').forEach(video => {
+        video.addEventListener('mouseenter', () => video.play());
+        video.addEventListener('mouseleave', () => {
+          video.pause();
+          video.currentTime = 0;
+        });
+      });
+
+      const chars = '.-:_—·';
+      const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+      async function scramble(element, finalText, iterations) {
+        for (let i = 0; i < iterations; i++) {
+          await sleep(70);
+          element.textContent = finalText
+            .split('')
+            .map(() => chars[Math.floor(Math.random() * chars.length)])
+            .join('');
+        }
+        element.textContent = finalText;
+      }
+
+      const headline = document.getElementById('headline');
+      window.addEventListener('load', () => scramble(headline, 'Organic', 18));
+      headline.addEventListener('mouseenter', () => scramble(headline, 'Organic', 8));
+    </script>
+  </body>
+</html>
