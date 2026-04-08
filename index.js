@@ -1,4 +1,4 @@
-const series = { worm: 30, flutter: 20, radius: 25, fluid: 25, plume: 20, grid: 20 };
+const series = { worm: 30, flutter: 20, radius: 25, fluid: 25, plume: 20, grid: 25, wave: 25, organic: 25 };
 const CDN = 'https://pub-0881700de6094af59d2170b91c991f80.r2.dev';
 
 function randomClip(name) {
