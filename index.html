@@ -5,90 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Generative Art" />
     <title>gen-art</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        background-color: black;
-        color: white;
-        font-family: sans-serif;
-        user-select: none;
-      }
-
-      header {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        padding: 24px 30px;
-      }
-
-      header a {
-        text-decoration: none;
-        color: white;
-        font-size: 0.85rem;
-        font-weight: 200;
-      }
-
-      header a:hover {
-        text-decoration: underline;
-      }
-
-      main {
-        width: 80%;
-        margin: 0 auto;
-        margin-top: 80px;
-        margin-bottom: 400px;
-      }
-
-      .series-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 28px;
-      }
-
-      .series-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-        text-decoration: none;
-        color: white;
-      }
-
-      .card-preview {
-        width: 100%;
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-        display: block;
-        outline: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      .card-title {
-        font-size: 1rem;
-        font-weight: 200;
-        font-style: italic;
-        text-align: center;
-        cursor: default;
-      }
-
-      @media (max-width: 640px) {
-        main {
-          width: 90%;
-          margin-top: 50px;
-        }
-        .series-grid {
-          grid-template-columns: 1fr;
-          gap: 14px;
-        }
-        .card-title {
-          font-size: 2rem;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
     <header>
@@ -98,68 +16,34 @@
 
     <main>
       <nav class="series-grid">
-        <a class="series-card" href="worm.html">
+        <a class="series-card" href="series/worm.html">
           <video class="card-preview" muted loop autoplay playsinline></video>
           <span class="card-title" data-label="Worm">Worm</span>
         </a>
-        <a class="series-card" href="flutter.html">
+        <a class="series-card" href="series/flutter.html">
           <video class="card-preview" muted loop autoplay playsinline></video>
           <span class="card-title" data-label="Flutter">Flutter</span>
         </a>
-        <a class="series-card" href="radius.html">
+        <a class="series-card" href="series/radius.html">
           <video class="card-preview" muted loop autoplay playsinline></video>
           <span class="card-title" data-label="Radius">Radius</span>
         </a>
-        <a class="series-card" href="fluid.html">
+        <a class="series-card" href="series/fluid.html">
           <video class="card-preview" muted loop autoplay playsinline></video>
           <span class="card-title" data-label="Fluid">Fluid</span>
         </a>
-        <a class="series-card" href="plume.html">
+        <a class="series-card" href="series/plume.html">
           <video class="card-preview" muted loop autoplay playsinline></video>
           <span class="card-title" data-label="Plume">Plume</span>
         </a>
-        <a class="series-card" href="grid.html">
+        <a class="series-card" href="series/grid.html">
           <video class="card-preview" muted loop autoplay playsinline></video>
           <span class="card-title" data-label="Grid">Grid</span>
         </a>
       </nav>
     </main>
 
-    <script>
-      const series = { worm: 30, flutter: 20, radius: 25, fluid: 25, plume: 20, grid: 20 };
-
-      const CDN = 'https://pub-0881700de6094af59d2170b91c991f80.r2.dev';
-
-      function randomClip(name) {
-        const n = Math.floor(Math.random() * series[name]) + 1;
-        return `${CDN}/gallery/${name}/${name}-${String(n).padStart(2, '0')}.mp4`;
-      }
-
-      // Load a random clip into each card on page load
-      document.querySelectorAll('.series-card').forEach(card => {
-        const name = card.getAttribute('href').replace('.html', '');
-        card.querySelector('.card-preview').src = randomClip(name);
-      });
-
-      // Scramble titles
-      const chars = '.-:_—·';
-      const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-
-      async function scramble(element, finalText, iterations) {
-        for (let i = 0; i < iterations; i++) {
-          await sleep(70);
-          element.textContent = finalText
-            .split('')
-            .map(c => c === ' ' ? ' ' : chars[Math.floor(Math.random() * chars.length)])
-            .join('');
-        }
-        element.textContent = finalText;
-      }
-
-      document.querySelectorAll('.card-title').forEach(el => {
-        window.addEventListener('load', () => scramble(el, el.dataset.label, 18));
-        el.addEventListener('mouseenter', () => scramble(el, el.dataset.label, 8));
-      });
-    </script>
+    <script src="scramble.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>

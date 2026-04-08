@@ -1,0 +1,43 @@
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.series-title {
+  font-size: 6rem;
+  font-weight: 200;
+  font-style: italic;
+  line-height: 1;
+  margin-bottom: 80px;
+  cursor: default;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.grid video {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  outline: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 1000px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .series-title {
+    font-size: 3.5rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

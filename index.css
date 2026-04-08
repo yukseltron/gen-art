@@ -1,0 +1,41 @@
+.series-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.series-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  color: white;
+}
+
+.card-preview {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  outline: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 200;
+  font-style: italic;
+  text-align: center;
+  cursor: default;
+}
+
+@media (max-width: 640px) {
+  .series-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .card-title {
+    font-size: 2rem;
+  }
+}
